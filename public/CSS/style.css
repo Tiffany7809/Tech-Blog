@@ -1,10 +1,47 @@
+:root {
+    --main-bg-color: rgb(55, 53, 68);
+    --card-bg-color: rgb(1, 1, 19);
+    --text-color: White;
+
+    
+  }
+
+
 * {
-    background-color: burlywood;
-    color: darkblue;
+    
+    color: var(--text-color);
+    text-align: center;
 }
 
-#card {
+.form-input {
+    color: black;
+}
+.card {
     border: black;
     border-radius: 1px;
     border-style: dotted;
+    background-color: var(--main-bg-color);
+}
+
+.card-header {
+    background-color: var(--card-bg-color);
+
+}
+button {
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.login {
+    background-color: var(--main-bg-color);
+}
+
+.link {
+    color: var(--text-color)
+}
+
+#login-form {
+    background-color: var(--card-bg-color);
 }
