@@ -1,0 +1,10 @@
+* {
+    background-color: burlywood;
+    color: darkblue;
+}
+
+#card {
+    border: black;
+    border-radius: 1px;
+    border-style: dotted;
+}
