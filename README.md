@@ -36,6 +36,8 @@
   <h2 id="use">Usage</h2>
 
   To use this application, simply visit the deployed application link provided
+  
+  https://techblogtiffany.herokuapp.com/
   ***
   
 
