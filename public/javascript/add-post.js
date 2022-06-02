@@ -5,8 +5,7 @@ async function newFormHandler(event) {
 
   const title = document.querySelector('input[name="post-title"]').value;
   const content = document.querySelector('input[name="content"]').value;
-
-  //retrrieve user input and get ready to add to database
+  
   const response = await fetch(`/api/posts`, {
     method: 'POST',
     body: JSON.stringify({
@@ -19,7 +18,7 @@ async function newFormHandler(event) {
   });
 
 
-//redirect to teh dashboard and show new post
+//redirect to the dashboard and show new post
   if (response.ok) {
     document.location.replace('/dashboard');
   } else {
