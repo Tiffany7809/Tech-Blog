@@ -38,10 +38,18 @@ button {
     background-color: var(--main-bg-color);
 }
 
+.login-link {
+    color:var(--text-color);
+}
+
 .link {
     color: var(--text-color)
 }
 
 #login-form {
     background-color: var(--card-bg-color);
+}
+
+#commentHeader {
+    color:black
 }
