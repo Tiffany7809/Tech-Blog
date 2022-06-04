@@ -1,4 +1,4 @@
-//Seedinh the Post table in database
+//Seeding the Post table in database
 
 const { Post } = require('../models');
 
