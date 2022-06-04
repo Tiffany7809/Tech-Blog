@@ -30,8 +30,8 @@ router.get('/', withAuth, (req, res) => {
                 }
             ]
         })
-        .then(dbPostData => {
-            const posts = dbPostData.map(post => post.get({ plain: true }));
+        .then(PostData => {
+            const posts = PostData.map(post => post.get({ plain: true }));
             res.render('dashboard', { posts, loggedIn: true });
         })
         .catch(err => {
@@ -39,6 +39,12 @@ router.get('/', withAuth, (req, res) => {
             res.status(500).json(err);
         });
 });
+
+// GET /dashboard/new route
+router.get('/new', (req, res) => {
+    res.render('new-post');
+});
+
 
 // GET /dashboard/edit/:id route
 router.get('/edit/:id', withAuth, (req, res) => {
@@ -65,13 +71,13 @@ router.get('/edit/:id', withAuth, (req, res) => {
                 }
             ]
         })
-        .then(dbPostData => {
-            if (!dbPostData) {
+        .then(PostData => {
+            if (!PostData) {
                 res.status(404).json({ message: 'No post found with this id' });
                 return;
             }
 
-            const post = dbPostData.get({ plain: true });
+            const post = PostData.get({ plain: true });
             res.render('edit-post', { post, loggedIn: true });
         })
         .catch(err => {
@@ -80,10 +86,6 @@ router.get('/edit/:id', withAuth, (req, res) => {
         });
 })
 
-// GET /dashboard/new route
-router.get('/new', (req, res) => {
-    res.render('new-post');
-});
 
 
 

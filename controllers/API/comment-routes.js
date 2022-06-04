@@ -29,6 +29,8 @@ router.get('/:id', (req, res) => {
 });
 
 
+
+
 //POST /api/comments/ route (create a new comment)
 router.post('/', withAuth, (req, res) => {
     if (req.session) {
@@ -43,6 +45,25 @@ router.post('/', withAuth, (req, res) => {
                 res.status(400).json(err);
             })
     }
+});
+
+
+//DELETE /api/comments/:id route (delete a comment)
+router.delete('/:id', withAuth, (req, res) => {
+    Comment.destroy({
+        where: {
+            id: req.params.id
+        }
+    }).then(CommentData => {
+        if (!CommentData) {
+            res.status(404).json({ message: 'Sorry! No comment was found with this id' });
+            return;
+        }
+        res.json(CommentData);
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
 
 //PUT /api/comments/:id route (update a comment)
@@ -65,22 +86,7 @@ router.put('/:id', withAuth, (req, res) => {
     });
 });
 
-//DELETE /api/comments/:id route (delete a comment)
-router.delete('/:id', withAuth, (req, res) => {
-    Comment.destroy({
-        where: {
-            id: req.params.id
-        }
-    }).then(CommentData => {
-        if (!CommentData) {
-            res.status(404).json({ message: 'Sorry! No comment was found with this id' });
-            return;
-        }
-        res.json(CommentData);
-    }).catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-});
+
+
 
 module.exports = router;

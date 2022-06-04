@@ -1,19 +1,29 @@
 const { Comment } = require('../models');
 
 const commentData = [{
-        comment_text: "Lorem ipsum dolor sit amet",
+        comment_text: "Trysail Sail ho Corsair red ensign hulk smartly boom jib rum gangway. Case shot Shiver me timbers gangplank crack Jennys tea cup ballast",
         user_id: 1,
         post_id: 1
     },
     {
-        comment_text: "This is the day you will always remember as the day you almost caught Captain Jack Sparrow.",
+        comment_text: "Blimey lee snow crow's nest rutters. Fluke jib scourge of the seven seas boatswain schooner gaff booty Jack Tar transom spirits.",
         user_id: 2,
         post_id: 2
     },
     {
-        comment_text: "Impossible? We did a lot of impossible things on this journey. Im tired of hearing that things are impossible or useless. Those words mean nothing to us.",
+        comment_text: "blow the man down spanker Shiver me timbers to go on account lookout wherry doubloon chase. ",
         user_id: 3,
         post_id: 3
+    },
+    {
+        comment_text: "Deadlights jack lad schooner scallywag dance the hempen jig carouser broadside ",
+        user_id: 1,
+        post_id: 2
+    },
+    {
+        comment_text:" Fluke jib scourge of the seven seas boatswain",
+        user_id: 2,
+        post_id: 1
     }
 ];
 

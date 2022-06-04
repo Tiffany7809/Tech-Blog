@@ -2,7 +2,7 @@
 async function commentFormHandler(event) {
     event.preventDefault();
 
-    const commentText = document.querySelector('input[name="comment-body"]').value.trim();
+    const comment = document.querySelector('input[name="comment-body"]').value.trim();
 
     const post = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
@@ -13,7 +13,7 @@ async function commentFormHandler(event) {
             method: 'POST',
             body: JSON.stringify({
                 post,
-                commentText
+                comment
             }),
             headers: {
                 'Content-Type': 'application/json'

@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
                 },
                 {
                     model: Comment,
-                    attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                    attributes: ['id', 'comment_text','user_id', 'post_id', 'created_at'],
                     include: {
                         model: User,
                         attributes: ['username']
@@ -54,7 +54,7 @@ router.get('/:id', (req, res) => {
                 },
                 {
                     model: Comment,
-                    attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                    attributes: ['id', 'comment_text','user_id', 'post_id', 'created_at'],
                     include: {
                         model: User,
                         attributes: ['username']
@@ -89,6 +89,24 @@ router.post('/', withAuth, (req, res) => {
         });
 });
 
+//DELETE /api/posts/:id route (delete a post)
+router.delete('/:id', withAuth, (req, res) => {
+    Post.destroy({
+        where: {
+            id: req.params.id
+        }
+    }).then(PostData => {
+        if (!PostData) {
+            res.status(404).json({ message: 'Sorry! No post was found with this id' });
+            return;
+        }
+        res.json(PostData);
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
 //PUT /api/posts/:id route (update a post)
 router.put('/:id', withAuth, (req, res) => {
     Post.update({
@@ -111,22 +129,6 @@ router.put('/:id', withAuth, (req, res) => {
         });
 });
 
-//DELETE /api/posts/:id route (delete a post)
-router.delete('/:id', withAuth, (req, res) => {
-    Post.destroy({
-        where: {
-            id: req.params.id
-        }
-    }).then(PostData => {
-        if (!PostData) {
-            res.status(404).json({ message: 'Sorry! No post was found with this id' });
-            return;
-        }
-        res.json(PostData);
-    }).catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-});
+
 
 module.exports = router;
