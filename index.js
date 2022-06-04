@@ -20,6 +20,7 @@ const sess = {
         db: sequelize
     })
 };
+
 app.use(session(sess));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
