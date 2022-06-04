@@ -41,8 +41,6 @@
   ***
   
 
-
-
   <h2 id="questions">Questions</h2>
 
   If you have any questions, please feel free to E-mail me at tiffany.dempsey2000@gmail.com
