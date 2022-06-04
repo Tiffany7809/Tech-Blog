@@ -1,25 +1,25 @@
 //signup form submit
-
 async function signupFormHandler(event) {
   event.preventDefault();
 
 
-  const username = document.querySelector('#username-signup').value.trim();
-  const password = document.querySelector('#password-signup').value.trim();
+  const pass = document.querySelector('#password-signup').value.trim();
+  const userName = document.querySelector('#username-signup').value.trim();
+ 
 
-  if (username && password) {
+  if (userName && password) {
       const response = await fetch('/api/users', {
           method: 'POST',
           body: JSON.stringify({
-              username,
-              password
+              userName,
+              pass
           }),
           headers: { 'Content-Type': 'application/json' }
       });
-      if (response.ok) {
-          
-          document.location.replace('/dashboard');
 
+
+      if (response.ok) {
+          document.location.replace('/dashboard');
       } else {
           alert(response.statusText);
       }

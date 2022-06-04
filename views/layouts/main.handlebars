@@ -15,8 +15,8 @@
           <div class="row">
             <nav>
                     <button class="btn"><a class="link" href="/">Home</a></button>
-                    <button class="btn"><a class="link" href="/dashboard">My Dashboard</a></button>
                     {{#if loggedIn}}
+                     <button class="btn"><a class="link" href="/dashboard">My Dashboard</a></button>
                     <button class="btn"><a class="link" href="/" id="logout">Logout</a></button>
                     {{else}}
                     <button class="btn"><a class="link" href="/login">Login</a></button>
