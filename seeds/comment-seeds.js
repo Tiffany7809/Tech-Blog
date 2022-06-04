@@ -1,6 +1,9 @@
+//Seeding the comment table in database
+
 const { Comment } = require('../models');
 
-const commentData = [{
+const commentData = [
+    {
         comment_text: "Trysail Sail ho Corsair red ensign hulk smartly boom jib rum gangway. Case shot Shiver me timbers gangplank crack Jennys tea cup ballast",
         user_id: 1,
         post_id: 1
@@ -22,7 +25,7 @@ const commentData = [{
     },
     {
         comment_text:" Fluke jib scourge of the seven seas boatswain",
-        user_id: 2,
+        user_id: 4,
         post_id: 1
     }
 ];

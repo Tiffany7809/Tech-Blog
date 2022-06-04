@@ -1,4 +1,4 @@
-//logout
+//logout function
 
 async function logout() {
   const response = await fetch('/api/users/logout', {
@@ -7,6 +7,7 @@ async function logout() {
   });
 
   if (response.ok) {
+    //redirect to home page on logout
     document.location.replace('/');
   } else {
     alert(response.statusText);

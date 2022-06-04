@@ -1,8 +1,10 @@
+//Seeding the user table in database
+
 const { User } = require('../models');
 
 const userData = [{
         username: 'tiffany7809',
-        password: 'budbasaur'
+        password: 'bulbasaur'
 
     },
     {
@@ -12,6 +14,10 @@ const userData = [{
     {
         username: 'JoJo',
         password: 'diooo'
+    },
+    {
+        username: 'Ash',
+        password: 'pikachu'
     }
 ];
 
