@@ -30,12 +30,11 @@ router.get('/', withAuth, (req, res) => {
                 }
             ]
         })
-        .then(PostData => {
-            const posts = PostData.map(post => post.get({ plain: true }));
+        .then(postData => {
+            const posts = postData.map(post => post.get({ plain: true }));
             res.render('dashboard', { posts, loggedIn: true });
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });
@@ -71,17 +70,16 @@ router.get('/edit/:id', withAuth, (req, res) => {
                 }
             ]
         })
-        .then(PostData => {
-            if (!PostData) {
+        .then(postData => {
+            if (!postData) {
                 res.status(404).json({ message: 'No post found with this id' });
                 return;
             }
 
-            const post = PostData.get({ plain: true });
+            const post = postData.get({ plain: true });
             res.render('edit-post', { post, loggedIn: true });
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 })

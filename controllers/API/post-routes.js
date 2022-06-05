@@ -30,9 +30,8 @@ router.get('/', (req, res) => {
                 }
             ]
         })
-        .then(PostData => res.json(PostData.reverse()))
+        .then(postData => res.json(postData.reverse()))
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });
@@ -62,15 +61,14 @@ router.get('/:id', (req, res) => {
                 }
             ]
         })
-        .then(PostData => {
-            if (!PostData) {
+        .then(postData => {
+            if (!postData) {
                 res.status(404).json({ message: 'Sorry! No post was found with this id' });
                 return;
             }
-            res.json(PostData);
+            res.json(postData);
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });
@@ -82,9 +80,8 @@ router.post('/', withAuth, (req, res) => {
             content: req.body.content,
             user_id: req.session.user_id
         })
-        .then(PostData => res.json(PostData))
+        .then(postData => res.json(postData))
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });
@@ -95,14 +92,13 @@ router.delete('/:id', withAuth, (req, res) => {
         where: {
             id: req.params.id
         }
-    }).then(PostData => {
-        if (!PostData) {
+    }).then(postData => {
+        if (!postData) {
             res.status(404).json({ message: 'Sorry! No post was found with this id' });
             return;
         }
-        res.json(PostData);
+        res.json(postData);
     }).catch(err => {
-        console.log(err);
         res.status(500).json(err);
     });
 });
@@ -116,15 +112,14 @@ router.put('/:id', withAuth, (req, res) => {
             where: {
                 id: req.params.id
             }
-        }).then(PostData => {
-            if (!PostData) {
+        }).then(postData => {
+            if (!postData) {
                 res.status(404).json({ message: 'Sorry! No post was found with this id' });
                 return;
             }
-            res.json(PostData);
+            res.json(postData);
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });

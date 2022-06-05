@@ -27,12 +27,11 @@ router.get('/', (req, res) => {
                 }
             ]
         })
-        .then(PostData => {
-            const posts = PostData.map(post => post.get({ plain: true }));
+        .then(postData => {
+            const posts = postData.map(post => post.get({ plain: true }));
             res.render('homepage', { posts, loggedIn: req.session.loggedIn });
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });
@@ -77,19 +76,18 @@ router.get('/post/:id', (req, res) => {
                 }
             ]
         })
-        .then(PostData => {
-            if (!PostData) {
+        .then(postData => {
+            if (!postData) {
                 res.status(404).json({ message: 'Sorry! No post found.' });
                 return;
             }
-            const post = PostData.get({ plain: true });
+            const post = postData.get({ plain: true });
             console.log(post);
             res.render('single-post', { post, loggedIn: req.session.loggedIn });
 
 
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });
@@ -120,17 +118,16 @@ router.get('/posts-comments', (req, res) => {
                 }
             ]
         })
-        .then(PostData => {
-            if (!PostData) {
+        .then(postData => {
+            if (!postData) {
                 res.status(404).json({ message: 'No post found with this id' });
                 return;
             }
-            const post = PostData.get({ plain: true });
+            const post = postData.get({ plain: true });
 
             res.render('posts-comments', { post, loggedIn: req.session.loggedIn });
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });

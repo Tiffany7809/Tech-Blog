@@ -7,9 +7,8 @@ router.get('/', (req, res) => {
     User.findAll({
             attributes: { exclude: ['[password'] }
         })
-        .then(UserData => res.json(UserData))
+        .then(userData => res.json(userData))
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });
@@ -44,15 +43,14 @@ router.get('/:id', (req, res) => {
                 }
             ]
         })
-        .then(UserData => {
-            if (!UserData) {
+        .then(userData => {
+            if (!userData) {
                 res.status(404).json({ message: 'Sorry! No user found with this id.' });
                 return;
             }
-            res.json(UserData);
+            res.json(userData);
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });
@@ -65,17 +63,16 @@ router.post('/', (req, res) => {
         password: req.body.password
     })
 
-    .then(UserData => {
+    .then(userData => {
             req.session.save(() => {
-                req.session.user_id = UserData.id;
-                req.session.username = UserData.username;
+                req.session.user_id = userData.id;
+                req.session.username = userData.username;
                 req.session.loggedIn = true;
 
-                res.json(UserData);
+                res.json(userData);
             });
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });
@@ -86,12 +83,12 @@ router.post('/login', (req, res) => {
             where: {
                 username: req.body.username
             }
-        }).then(UserData => {
-            if (!UserData) {
-                res.status(400).json({ message: 'No user with that username!' });
+        }).then(userData => {
+            if (!userData) {
+                res.status(400).json({ message: 'Incorrect Username!' });
                 return;
             }
-            const validPassword = UserData.checkPassword(req.body.password);
+            const validPassword = userData.checkPassword(req.body.password);
 
             if (!validPassword) {
                 res.status(400).json({ message: 'Incorrect password!' });
@@ -99,15 +96,14 @@ router.post('/login', (req, res) => {
             }
             req.session.save(() => {
 
-                req.session.user_id = UserData.id;
-                req.session.username = UserData.username;
+                req.session.user_id = userData.id;
+                req.session.username = userData.username;
                 req.session.loggedIn = true;
 
-                res.json({ user: UserData, message: 'logged in!' });
+                res.json({ user: userData, message: 'logged in!' });
             });
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });
@@ -119,15 +115,14 @@ router.delete('/:id', (req, res) => {
                 id: req.params.id
             }
         })
-        .then(UserData => {
-            if (!UserData) {
+        .then(userData => {
+            if (!userData) {
                 res.status(404).json({ message: 'Sorry! No user was found with this id.' });
                 return;
             }
-            res.json(UserData);
+            res.json(userData);
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 });
@@ -152,15 +147,14 @@ router.put('/:id', (req, res) => {
                 id: req.params.id
             }
         })
-        .then(UserData => {
-            if (!UserData[0]) {
+        .then(userData => {
+            if (!userData[0]) {
                 res.status(404).json({ message: 'Sorry! No user was found with this id.' });
                 return;
             }
-            res.json(UserData);
+            res.json(userData);
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json(err);
         });
 
