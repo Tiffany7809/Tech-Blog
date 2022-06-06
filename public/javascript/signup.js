@@ -1,18 +1,19 @@
 //signup form submit
 async function signupFormHandler(event) {
+
   event.preventDefault();
 
 
-  const pass = document.querySelector('#password-signup').value.trim();
-  const userName = document.querySelector('#username-signup').value.trim();
+  const password = document.querySelector('#password-signup').value.trim();
+  const username = document.querySelector('#username-signup').value.trim();
  
 
-  if (userName && password) {
+  if (username && password) {
       const response = await fetch('/api/users', {
           method: 'POST',
           body: JSON.stringify({
-              userName,
-              pass
+              username,
+              password
           }),
           headers: { 'Content-Type': 'application/json' }
       });
@@ -21,7 +22,7 @@ async function signupFormHandler(event) {
       if (response.ok) {
           document.location.replace('/dashboard');
       } else {
-          alert(response.statusText);
+          alert("couldn't create new user");
       }
   }
 }

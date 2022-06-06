@@ -1,7 +1,12 @@
-<article class="post">
+<div class="container-fluid">
+    
+    <h2>Homepage</h2>
+    <div class="post">
+        {{#each posts as |post| }}
+            {{> post-info post}}
+        {{/each}}
 
-    {{#each posts as |post| }}
-        {{> post-info post}}
-    {{/each}}
+    </div>
 
-</article>
+</div>
+

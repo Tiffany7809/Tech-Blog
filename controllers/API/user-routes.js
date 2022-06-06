@@ -9,6 +9,7 @@ router.get('/', (req, res) => {
         })
         .then(userData => res.json(userData))
         .catch(err => {
+            console.log(err);
             res.status(500).json(err);
         });
 });
@@ -51,6 +52,7 @@ router.get('/:id', (req, res) => {
             res.json(userData);
         })
         .catch(err => {
+            console.log(err);
             res.status(500).json(err);
         });
 });
@@ -85,7 +87,7 @@ router.post('/login', (req, res) => {
             }
         }).then(userData => {
             if (!userData) {
-                res.status(400).json({ message: 'Incorrect Username!' });
+                res.status(400).json({ message: 'No user with that username!' });
                 return;
             }
             const validPassword = userData.checkPassword(req.body.password);
@@ -104,6 +106,7 @@ router.post('/login', (req, res) => {
             });
         })
         .catch(err => {
+
             res.status(500).json(err);
         });
 });

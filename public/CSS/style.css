@@ -53,3 +53,21 @@ button {
 #commentHeader {
     color:black
 }
+h1{
+    background-color: var(--main-bg-color);
+    padding-bottom: 5px;
+    font-size: 80px;
+    border-color: var(--card-bg-color);
+    border-width: 10px;
+    border-style: dashed;
+    margin-top: 5px;
+}
+
+h2 {
+    background-color: var(--main-bg-color);
+    padding-bottom: 5px;
+    font-size: 30px;
+    border-color: var(--card-bg-color);
+    border-width: 10px;
+    border-style: dashed;
+}
