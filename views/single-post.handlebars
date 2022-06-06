@@ -1,21 +1,22 @@
+<div class="container">
+    {{> post-info post}}
 
-{{> post-info post}}
+    {{#if loggedIn}}
 
-{{#if loggedIn}}
-<div class="card">
-    <h3 class="card-header"></h3>
-    <form class="card-body comment-form" id="comment-form">
+    <div class="card">
+        <h3 class="card-header"></h3>
+        <form class="card-body comment-form" id="comment-form">
 
-        <label class="form-label">Leave A Comment:</label>
-        <input id="comment" name="comment-body" class="form-input" />
+            <label class="form-label">Leave A Comment:</label>
+            <input id="comment" name="comment-body" class="form-input" />
 
-        <button type="submit" class="btn">Submit</button>
-    </form>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+    {{/if}}
+
+    {{> comments post.comments}}
 </div>
-{{/if}}
-
-{{> comments post.comments}}
-
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
 {{/if}}

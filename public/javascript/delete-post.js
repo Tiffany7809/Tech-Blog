@@ -16,8 +16,7 @@ async function deleteFormHandler(event) {
     });
     
     if (response.ok) {
-     
-      document.location.replace('/dashboard/').alert(`Post ${post_id} has been deleted`);
+      document.location.replace('/dashboard/');
     } else {
       alert(response.statusText);
     }

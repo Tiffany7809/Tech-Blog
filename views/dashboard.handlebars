@@ -1,13 +1,14 @@
 
 {{#if posts.length}}
-<section>    
+<div>    
 
-  <h2>Your previous Posts:</h2>
+  <h2>Your Posts:</h2>
+  
     {{#each posts as |post|}}
       {{> dashboard-post-info post}}
     {{/each}}
 
-</section>
+</div>
 {{/if}}
 
 <button type="submit" class="btn"><a class="link" href="/dashboard/new">Create A New Post!</a></button>
