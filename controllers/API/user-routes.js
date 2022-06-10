@@ -60,7 +60,7 @@ router.get('/:id', (req, res) => {
 //POST /api/users route (create a new user)
 router.post('/', (req, res) => {
 
-    User.create({
+    User.create ({
         username: req.body.username,
         password: req.body.password
     })
@@ -87,7 +87,7 @@ router.post('/login', (req, res) => {
             }
         }).then(userData => {
             if (!userData) {
-                res.status(400).json({ message: 'No user with that username!' });
+                res.status(400).json({ message: 'Sorry, No user with that username was found.' });
                 return;
             }
             const validPassword = userData.checkPassword(req.body.password);
@@ -102,7 +102,7 @@ router.post('/login', (req, res) => {
                 req.session.username = userData.username;
                 req.session.loggedIn = true;
 
-                res.json({ user: userData, message: 'logged in!' });
+                res.json({ user: userData, message: 'has logged in!' });
             });
         })
         .catch(err => {

@@ -25,6 +25,6 @@ async function signupFormHandler(event) {
           alert("couldn't create new user");
       }
   }
-}
+};
 
 document.querySelector('#signup-form').addEventListener('submit', signupFormHandler);

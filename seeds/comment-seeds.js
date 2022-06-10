@@ -11,7 +11,7 @@ const commentData = [
     {
         comment_text: "Blimey lee snow crow's nest rutters. Fluke jib scourge of the seven seas boatswain schooner gaff booty Jack Tar transom spirits.",
         user_id: 2,
-        post_id: 2
+        post_id: 4
     },
     {
         comment_text: "blow the man down spanker Shiver me timbers to go on account lookout wherry doubloon chase. ",
