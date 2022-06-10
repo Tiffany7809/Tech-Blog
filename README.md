@@ -17,17 +17,18 @@
 
   <h2 id="describe">Description</h2>
 
-This is a full stack application, a blog that users can post and view others post as well as edit and delete post is so desired
+This is a full stack application, a blog that users can post and view others posts as well as edit and delete posts.
+This apploication uses Handlebars,Express,NodeJS,Bootstrap,Sequelize,Password Authenitcation HTML, JS and CSS.
 
 Through making this application I learned how to use handlebars, the MVC set up and how to connect a front end application to a database.
 
-I had a hard time getting this application deployed to heroku, that was the biggest challenge.
+There were a few challenges with getting used to handlebars and I had a hard time getting this application deployed to heroku, that was the biggest challenge.
 
 ---
 
   <h2 id="use">Usage</h2>
 
-To use this application, simply visit the deployed application link provided
+To use this application, simply visit the deployed application link below, create an account and start posting! 
 
 https://techblogtiffany.herokuapp.com/
 
@@ -37,6 +38,7 @@ https://techblogtiffany.herokuapp.com/
 
 If you have any questions, please feel free to E-mail me at tiffany.dempsey2000@gmail.com
 Or reach out to me via GitHub
+
 Tiffany7809
 https://github.com/Tiffany7809
 
